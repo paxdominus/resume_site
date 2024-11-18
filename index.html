@@ -17,13 +17,17 @@
     formData.append("file", file);
     formData.append("fileName",name+"-" + email);
 
-    fetch("http://localhost:3000/upload", {
+    fetch("http://localhost:8010/proxy:3000/upload", {
       method: "POST",
       body: formData,
+      headers: {
+                'Access-Control-Allow-Origin':'*'
+            },
     })
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
+      var abc = 0;
   }
 </script>
 
